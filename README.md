@@ -147,7 +147,7 @@ round(contrib, 3)
 ``` r
 # Visualize the contribution
 corrplot(contrib, is.cor = FALSE)
-(corr-2.png)
+
 ```
 
 2.Further Explanations
