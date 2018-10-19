@@ -68,7 +68,7 @@ patient_outcome_clean <- select (patient_outcome, "icc_pd_adm_nyha_q01", "quarti
  
 
 ############
-#GERANDO A TABELA DE CONTINGÊNCIA
+#CONTINGENCY TABLE
 ##################
 
 
