@@ -5,7 +5,15 @@ Debora Oliveira
 Overview
 --------
 
-The Chi-Square test of independence, also called Pearson's chi-square test is used to determine if there is a significant relationship between two nominal (categorical) variables. It offers a great advantage once it is a nonparametric statitical procedure that does not require a normal distribution. Thus,the result determines whether the association between the variables is statistically significant. Moreover, it allows the examination of differences between expected counts and observed counts to determine which variable levels may have the most impact on association.
+The Chi-Square test of independence, also called Pearson's chi-square test is used to determine if there is a significant relationship between two nominal (categorical) variables. It offers a great advantage once it is a nonparametric statitical procedure that does not require a normal distribution[1]. Thus, the result determines whether the association among variables is statistically significant.
+
+A short introduction to NYHA and KCCQ 
+-----------
+
+The New York Heart Association (NYHA) Functional Classification[2] provides a simple way of classifying the extent of heart failure. It places patients in one of four categories based on how much they are limited during physical activity; the limitations/symptoms are in regard to normal breathing and varying degrees in shortness of breath and/or angina.
+
+The Kansas City Cardiomyopathy Questionnaire (KCCQ) is a self-administered questionnaire developed to measure the patient’s perception of their health status, which includes heart failure symptoms, impact on physical and social function, and how their heart failure impacts their quality of life[3]. 
+
 
 
 1.Requirements
@@ -23,7 +31,7 @@ library(corrplot)
 
 ### i) Library(redcapAPI)
 
-This project uses data from REDCap. The package redcapAPI contain functions such as exportfields(), exportevents() that allows to choose between different events, or moments, in a clinical trial. For this project only two functions will be important: redcapConnection(), that requires a url and a token, exportRecords() to bring patient's records. However, without redcapAPI a csv file with data exported from REDCap could be used as a source.
+This project uses data from REDCap. The package redcapAPI contain functions such as exportfields(), exportevents() that allows to choose between different events, or moments, in a clinical trial. For this project only two functions will be important: redcapConnection(), that requires url and token, exportRecords() to bring patient's records. However, an alternative to redcapAPI would be a csv file with data easily exported from REDCap.
 
 ``` r
 source("token.txt")
@@ -123,13 +131,18 @@ The contigency table will look like:
 
 Lastly but not the least, the Pearson's chi-square test from the function chisq.test() will return de values for X-square, df and p-value.
 
+Chi-square test examines whether rows and columns of the contingency table above are statistically significantly associated.
+  
 ``` r
 chi_data <- chisq.test(outcome_table)
 ```
 
 ### iv) Library(corroplot)
 
-The last part of this project requires the package corroplot to visualize Pearson residuals.
+The last part of this project requires the package corroplot to visualize Pearson residuals.  Hence, in the corroplot table:  
+  1. Positive residuals will be in blue. Positive values in cells specify an attraction (positive association) between the corresponding row and column variables.
+  2. Negative residuals will be in red. This implies a repulsion (negative association) between the corresponding row and column variables.
+  
 ``` r
 corrplot(chi_data$residuals, is.cor = FALSE)
 
@@ -154,3 +167,9 @@ corrplot(contrib, is.cor = FALSE)
 ----------------------
 
 <http://www.sthda.com/english/wiki/chi-square-test-of-independence-in-r>
+
+3. References
+
+[1] <http://www.sthda.com/english/wiki/chi-square-test-of-independence-in-r>
+[2] NYHA <https://en.wikipedia.org/wiki/New_York_Heart_Association_Functional_Classification>
+[3] MEDICAL DEVICE DEVELOPMENT TOOL (MDDT) QUALIFICATION DECISION SUMMARY FOR KANSAS CITY CARDIOMYOPATHY QUESTIONNAIRE (KCCQ). <https://www.fda.gov/media/108301/download> 
