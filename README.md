@@ -5,7 +5,7 @@ Debora Oliveira
 Overview
 --------
 
-The Chi-Square test of independence, also called Pearson's chi-square test is used to determine if there is a significant relationship between two nominal (categorical) variables. It offers a great advantage once it is a nonparametric statitical procedure that does not require a normal distribution[1]. Thus, the result determines whether the association among variables is statistically significant.
+The Chi-Square test of independence, also called Pearson's chi-square test is used to determine if there is a significant relationship between two nominal (categorical) variables. It offers a great advantage once it is a nonparametric statistical procedure that does not require a normal distribution[1]. Thus, the result determines whether the association among variables is statistically significant.
 
 A short introduction to NYHA and KCCQ 
 -----------
